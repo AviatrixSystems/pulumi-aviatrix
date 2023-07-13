@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/astipkovits/pulumi-aviatrix/provider/pkg/version"
+	"github.com/AviatrixSystems/pulumi-aviatrix/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -67,13 +67,13 @@ func Provider() tfbridge.ProviderInfo {
 		//
 		// You may host a logo on a domain you control or add an SVG logo for your package
 		// in your repository and use the raw content URL for that file as your logo URL.
-		LogoURL: "https://raw.githubusercontent.com/astipkovits/pulumi-aviatrix/main/aviatrix_logo.svg",
+		LogoURL: "https://raw.githubusercontent.com/AviatrixSystems/pulumi-aviatrix/main/aviatrix_logo.svg",
 		// PluginDownloadURL is an optional URL used to download the Provider
 		// for use in Pulumi programs
 		// e.g https://github.com/org/pulumi-provider-name/releases/
-		//PluginDownloadURL: "https://github.com/astipkovits/pulumi-aviatrix/raw/main/releases/",
-                //e.g. https://github.com/astipkovits/pulumi-aviatrix/releases/download/v0.0.2/pulumi-resource-aviatrix-v0.0.2-darwin-arm64.tar.gz
-                PluginDownloadURL: "github://api.github.com/astipkovits",
+		//PluginDownloadURL: "https://github.com/AviatrixSystems/pulumi-aviatrix/raw/main/releases/",
+                //e.g. https://github.com/AviatrixSystems/pulumi-aviatrix/releases/download/v0.0.2/pulumi-resource-aviatrix-v0.0.2-darwin-arm64.tar.gz
+                PluginDownloadURL: "github://api.github.com/AviatrixSystems",
 		Description:       "A Pulumi package for creating and managing Aviatrix cloud resources.",
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
@@ -81,7 +81,7 @@ func Provider() tfbridge.ProviderInfo {
 		Keywords:   []string{"pulumi", "aviatrix", "category/cloud"},
 		License:    "Apache-2.0",
 		Homepage:   "https://www.aviatrix.com",
-		Repository: "https://github.com/astipkovits/pulumi-aviatrix",
+		Repository: "https://github.com/AviatrixSystems/pulumi-aviatrix",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.
 		GitHubOrg: "AviatrixSystems",
@@ -233,7 +233,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aviatrix_vpc_tracker":                      {Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getAviatrixVpcTracker")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			PackageName: "@astipkovits/aviatrix",
+			PackageName: "@AviatrixSystems/aviatrix",
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",
@@ -255,7 +255,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/astipkovits/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/AviatrixSystems/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -263,7 +263,7 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
-			//RootNamespace: "astipkovits",
+			//RootNamespace: "AviatrixSystems",
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
